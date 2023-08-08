@@ -1,11 +1,21 @@
+// تعديل الشيفرة لتصحيح الأخطاء
+
 class Tooltip {}
 
-class ProjectItem {}
+class ProjectItem {
+  constructor(id) {
+    this.id = id;
+  }
+}
 
 class ProjectList {
   constructor(type) {
+    this.projects = [];
     const prjItems = document.querySelectorAll(`#${type}-projects li`);
-    console.log(prjItems);
+    for (const prjItem of prjItems) {
+      this.projects.push(new ProjectItem(prjItem.id));
+    }
+    console.log(this.projects);
   }
 }
 
